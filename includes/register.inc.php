@@ -8,10 +8,7 @@ $email =$_POST['email'];
 $password=$_POST['password'];
 $img = mysqli_real_escape_string($conn,file_get_contents($_FILES["img"]["tmp_name"]));
 
-    if($first == '' || $last == '' || $email == '' || $img == ''|| $password == ''){
-        header("Location: ../form.php?regerror=Please%20Fill%20In%20All%20Fields"); 
-    }
-    else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+    if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         header("Location: ../form.php?mailerror=Please%20Enter%20valid%20Email%20Address");
     }
     else{

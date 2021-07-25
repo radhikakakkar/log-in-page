@@ -56,11 +56,11 @@
                 <h5>if you haven't Registered yet, kindly proceed with your credentials here </h5>
                 <br>
                 <h4> 1.Enter your first name:</h4>
-                <input ID="txt1" name="first" placeholder="first name"> 
+                <input ID="txt1" name="first" placeholder="first name" required> 
                 <br>
                 <br>
                 <h4> 2.Enter your last name: </h4>
-                <input ID= "txt2" name="last" placeholder="last name"> 
+                <input ID= "txt2" name="last" placeholder="last name" required> 
                 <br> 
                 <br>
                 <h4>3.Enter your Email: </h4>
@@ -72,18 +72,18 @@
 
                     </div>
                     <?php endif; ?>
-                    <input ID= "txt3" name="email" placeholder="email">
+                    <input ID= "txt3" name="email" placeholder="email" required>
                 <br> 
                 <br>
                 <h4> 5. Upload your profile image: </h4><br>
                 <p> (only passport size images allowed) </p>
                 <label for="img">SELECT IMAGE:</label>
-                <input type="file" ID="img" name="img" accept="image/*">
+                <input type="file" ID="img" name="img" accept="image/*" required>
                 <br>
                 <br>
                 <h4> 6. Create a strong password: </h4>
                 <p> (not more than 6 letters) </p>
-                <input type="password" name="password" id="password" placeholder="password">
+                <input type="password" name="password" id="password" placeholder="password" required>
                 <br>
                 <br>
                 <button class="btn btn-primary" type="submit" name="submit">REGISTER</button>
