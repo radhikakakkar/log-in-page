@@ -50,7 +50,7 @@
             
             <?php endif; ?>
            
-            <form action= "includes/register.inc.php" method="POST">
+            <form action= "includes/register.inc.php" method="POST" enctype="multipart/form-data">
                 <h3><b> Register down here for free <i class="bi bi-arrow-down"></i></b></h3>
                 <br>
                 <h5>if you haven't Registered yet, kindly proceed with your credentials here </h5>
@@ -75,12 +75,8 @@
                     <input ID= "txt3" name="email" placeholder="email">
                 <br> 
                 <br>
-                <h4> 4. Enter your city: </h4>
-                <input ID= "txt4" name="city" placeholder="city">
-                <br> 
-                <br>
                 <h4> 5. Upload your profile image: </h4><br>
-                <p> (only passpoert size images allowed) </p>
+                <p> (only passport size images allowed) </p>
                 <label for="img">SELECT IMAGE:</label>
                 <input type="file" ID="img" name="img" accept="image/*">
                 <br>
@@ -106,7 +102,7 @@
         <?php if(isset($_GET['again'])): ?>
             <div>
             <p class="again"><?php echo $_GET['again']; ?></p>
-            <p class="again"> Enter Again or try Resgistering </p>
+            <p class="again"> Enter Again or try registering </p>
             </div> 
         <?php endif; ?>
         

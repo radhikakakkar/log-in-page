@@ -28,11 +28,10 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `register` (
-  `sr_no` int(1) NOT NULL,
+  `sr_no` int(1) AUTO_INCREMENT PRIMARY KEY,
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `city` varchar(30) NOT NULL,
   `image` longblob NOT NULL,
   `password` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;

@@ -11,10 +11,7 @@ $password=$_POST['lpass'];
 
         header("Location: ../form.php?logerror=Please%20Fill%20In%20All%20Fields");
     }
-
     else{
-
-        
         $query = "SELECT * FROM `register` WHERE email='$email'
         AND password='$password'";
 
@@ -33,8 +30,6 @@ $password=$_POST['lpass'];
                 $_SESSION['username'] = $email;
                 
                 }
-            
-
             else{
 
                 header("Location: ../form.php?again=Wrong%20Username%20or%20Password");
@@ -77,19 +72,13 @@ $password=$_POST['lpass'];
             <h5 class="display-7"> YOUR DASHBOARD: </h5><br>
 
             <ul>
-        
-
-                <!-- <li><?php echo '<img id="image-style" src="data:image/jpeg;base64,'.base64_encode($rows['image']).'" />'; ?></li><br> -->
-
-                <!-- <li><img src="data:image/jpeg;charset=utf8;base64,<?php echo base64_encode($row['image']); ?>" /></li> -->
-
-
-                <li><?php echo $rows['image']; ?></li>
-                
-                <li><span> It's a pleasure to have you back,  </span><span style="color:pink; text-transform: capitalize; font-weight: bold;"><?php echo $rows['fname']; ?> <?php echo $rows['lname']; ?> </span></li>
-
-                <li>City :<span style="color:pink; text-transform: capitalize; font-weight: bold;"> <?php echo $rows['city']; ?></span></li>
-
+                <li>
+                    <?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $rows['image'] ).'" height="100px" width="100px"/>'; ?>
+                </li>
+                <li>
+                    <span>It's a pleasure to have you back,</span>
+                    <span style="color:pink; text-transform: capitalize; font-weight: bold;"><?php echo $rows['fname']; ?> <?php echo $rows['lname']; ?> </span>
+                </li>
             </ul>
         <?php } ?>
 

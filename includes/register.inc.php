@@ -5,33 +5,20 @@ include_once 'dbh.inc.php';
 $first =$_POST['first'];
 $last =$_POST['last'];
 $email =$_POST['email'];
-$city =$_POST['city'];
-$img =$_POST['img'];
 $password=$_POST['password'];
+$img = mysqli_real_escape_string($conn,file_get_contents($_FILES["img"]["tmp_name"]));
 
-// below two lines of code should be commented after another entry, they are only for the purpose of coreection of serial number
-$sql1 = "ALTER TABLE `register` AUTO_INCREMENT = 1;";
-mysqli_query($conn, $sql1);
-
-
-    if($first == '' || $last == '' || $email == '' || $city == '' |$img == ''| $password == ''){
-
-        header("Location: ../form.php?regerror=Please%20Fill%20In%20All%20Fields");
-        
+    if($first == '' || $last == '' || $email == '' || $img == ''|| $password == ''){
+        header("Location: ../form.php?regerror=Please%20Fill%20In%20All%20Fields"); 
     }
-
     else if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
         header("Location: ../form.php?mailerror=Please%20Enter%20valid%20Email%20Address");
     }
-
     else{
-
-        
-        $sql = "insert into register(fname, lname, email, city, password, image) values( '$first', '$last', '$email', '$city', '$password', '$img' );";
-
-        mysqli_query($conn, $sql);
-
-        //header("Location: ../form.php?registration=success");
+        $sql = "INSERT INTO register(fname, lname, email, password, image) VALUES( '$first', '$last', '$email', '$password', '$img' );";
+        if (!mysqli_query($conn, $sql)){
+            echo mysqli_error($conn);
+          }
     }
 ?>
 
@@ -51,7 +38,7 @@ mysqli_query($conn, $sql1);
 <div class="container">
     <div class="p-5 mb-4 bg-light rounded-3">
     <div class="container-fluid p-15">
-        <h4 class="display-6"> Your Resgistration is now complete <span style="color:pink;">:)</span></h4>
+        <h4 class="display-6"> Your Registration is now complete <span style="color:pink;">:)</span></h4>
     </div>
     </div>
 
